@@ -4,34 +4,32 @@ import Script from './data/game'
 
 class Branch extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            disabled: false
-        }
-    }
-
-    progress(next) {
-        this.props.progress(next)
-    }
-
     getBranch(name) {
-        for (var branchName in Script) {
-            if (branchName === name)
-                return Script[branchName]
+        for (var branchName in Script) { // For each branch in the script...
+            if (branchName === name) // If the branch is the branch I'm looking for...
+                return Script[branchName] //Return it.
         }
     }
 
     getChoices() {
+        //Get the branch.
         var branch = this.getBranch(this.props.position)
+        //Make an empty array to put the buttons in.
         var buttons = []
+        //If the branch has choices...
         if (branch["choice"]) {
+            //For each choice...
             branch.choice.forEach(element => {
+                //Make a button
                 buttons = buttons.concat([<button onClick={() => this.props.onSubmit(element.next)}>{element.text}</button>])
             });
         }
-        else if (branch["next"])
+        //If the branch doesn't have choices but does have a next position...
+        else if (branch["next"]) {
+            // Make a continue button...
             buttons = <button onClick={() => this.props.onSubmit(branch.next)}>Continue</button>
+        }
+        // If there's no choices and no next, don't show a button.
         else buttons = null
 
         return buttons
@@ -41,9 +39,13 @@ class Branch extends Component {
         return (
             <div>
                 <p><p dangerouslySetInnerHTML={{ __html: "<p>" + this.getBranch(this.props.position).text + "</p>" }}></p></p>
-                {this.props.disabled ? null : <div>
-                    {this.getChoices()}
-                </div>}
+                {/* Ternary Operator (condition ? true : false) */}
+                {/* if this.props.disabled ? don't show buttons : else do show buttons*/}
+                {
+                    this.props.disabled
+                        ? null
+                        : <div> {this.getChoices()}</div>
+                }
             </div>
         );
     }

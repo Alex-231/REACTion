@@ -13,25 +13,17 @@ class App extends Component {
     }
   }
 
+  //Called when the app loads.
   componentDidMount() {
+    //Load the stored save point.
     var position = localStorage.getItem("save")
-    if (position)
-      this.setState({ position })
-    else
-      this.setState({ position: 'b1p0' })
+    if (position) //If there is a save point...
+      this.setState({ position }) //Move it to state
+    else //Else
+      this.setState({ position: 'b1p0' }) //Move the start point to state.
   }
 
-  progress() {
-    console.log(this.state.branches)
-    var newBranches = this.state.branches
-    newBranches = newBranches.concat([<Branch key={this.state.no} no={this.state.no} progress={this.progress.bind(this)} />])
-    console.log(this.state.newBranches)
-    this.setState({
-      branches: newBranches,
-      no: this.state.no + 1
-    })
-  }
-
+  //When a branch button is pressed
   branchSubmit(next) {
     this.setState({
       oldBranches: this.state.oldBranches.concat([<Branch disabled position={this.state.position} />]),
@@ -39,19 +31,21 @@ class App extends Component {
     })
   }
 
+  //Save the current position to local storage.
   save() {
     localStorage.setItem("save", this.state.position)
   }
 
+  //Load the position saved in local storage (if there is one).
   load() {
     var position = localStorage.getItem("save")
     if (position)
       this.setState({ position, oldBranches: [] })
   }
 
+  //Go back to the beginning
   restart() {
     this.setState({ position: 'b1p0', oldBranches: [] })
-    this.save()
   }
 
   render() {
@@ -61,12 +55,16 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Exampolo</h1>
         </header>
-        {this.state.position ?
-          <div>
-            <button onClick={this.save.bind(this)}>Save</button><button onClick={this.load.bind(this)}>Load</button><button onClick={this.restart.bind(this)}>Restart</button>
-            {this.state.oldBranches}
-            <Branch onSubmit={this.branchSubmit.bind(this)} position={this.state.position} /></div>
-          : null}
+        {
+          this.state.position
+            ? <div>
+              <button onClick={this.save.bind(this)}>Save</button>
+              <button onClick={this.load.bind(this)}>Load</button>
+              <button onClick={this.restart.bind(this)}>Restart</button>
+              {this.state.oldBranches}
+              <Branch onSubmit={this.branchSubmit.bind(this)} position={this.state.position} />
+            </div>
+            : null}
       </div>
     );
   }
