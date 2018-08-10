@@ -1,4 +1,4 @@
-var script = {
+const script = {
   end: {
     text: ""
   },
@@ -8,7 +8,7 @@ var script = {
 
   },
 
-  b1p78= {
+  b1p78: {
     text: "‘I was there. I am here! I’m aware,’ I growled.",
     next: "b1p79",
   },
@@ -475,7 +475,7 @@ var script = {
     next: "b4p16",
   },
 
-  b5p6= {
+  b5p6: {
     text: "And I’m done with everyone.<br><br>END3 - LONER",
     next: "end",
   },
@@ -495,7 +495,7 @@ var script = {
     next: "b5p4",
   },
 
-  b5p2= {
+  b5p2: {
     text: "There’s so much about myself that I don’t know yet. Some structure needs to be stuck to.<br><br>Always questioning, questioning, questioning.",
     next: "b5p3",
   },
@@ -506,18 +506,16 @@ var script = {
   },
 
   b4p14: {
-    text: "I feel…<br><br><span class='game-choice'>‘Bad’<br>‘Nothing’</span>",
+    text: "I feel…<br><br><span class:'game-choice'>‘Bad’<br>‘Nothing’</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "bad",
         next: "b4p15",
-      },
-      o2: {
+      }, {
         text: "nothing",
         next: "b5p1",
-      },
-    },
+      }]
   },
 
   b4p13: {
@@ -525,7 +523,7 @@ var script = {
     next: "b4p14",
   },
 
-  b4p12= {
+  b4p12: {
     text: "I’m now on the ground, and his touch disappears. I scramble to a less embarrassing pose, standing to retain some shred of dignity.<br><br>It isn't too terribly effective, as my legs are shaken by inner trembles.",
     next: "b4p13",
   },
@@ -573,12 +571,12 @@ var script = {
 
   bf3a3: {
     text: "Oh. <i>Oh.</i>",
-    next: bf3a4,
+    next: "bf3a4",
   },
 
   bf3a2: {
     text: "A moment’s pause.<br><br>‘Hey, that sounded pretty good.’",
-    next: bf3a3,
+    next: "bf3a3",
   },
 
   bf3a1: {
@@ -587,18 +585,16 @@ var script = {
   },
 
   b4p6: {
-    text: "Maybe my initial distrust was unwarranted. What do I say?<br><br><span class='game-choice'>‘Yeah’<br>‘Let go’</span>",
+    text: "Maybe my initial distrust was unwarranted. What do I say?<br><br><span class:'game-choice'>‘Yeah’<br>‘Let go’</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "yeah",
         next: "bf3a1",
-      },
-      o2: {
+      }, {
         text: "let go",
         next: "b4p7",
-      },
-    },
+      }]
   },
 
   b4p5: {
@@ -627,18 +623,16 @@ var script = {
   },
 
   b1p40: {
-    text: "Do I trust his words?<br><br><span class='game-choice'>‘Trust’<br>‘Distrust’</span>",
+    text: "Do I trust his words?<br><br><span class:'game-choice'>‘Trust’<br>‘Distrust’</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "trust",
         next: "b1p41",
-      },
-      o2: {
+      }, {
         text: "distrust",
         next: "b4p1",
-      },
-    },
+      }]
   },
 
   b1p39: {
@@ -752,23 +746,22 @@ var script = {
   },
 
   bf1a2: {
-    text: "First, I need a tone.<br><br>What reaction would I like to convey to him?<br><br><span class='game-choice'>'High'</span>, to convey happiness<br><span class='game-choice'>'Low'</span>, to convey anger<br><span class='game-choice'>'Neutral'</span>, to be safe",
+    text: "First, I need a tone.<br><br>What reaction would I like to convey to him?<br><br><span class:'game-choice'>'High'</span>, to convey happiness<br><span class:'game-choice'>'Low'</span>, to convey anger<br><span class:'game-choice'>'Neutral'</span>, to be safe",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "high",
         next: "bf2a1",
-      },
-      o2: {
+      }, {
         text: "low",
         next: "bf2a1",
       },
-      o3: {
+      {
         text: "neutral",
         next: "bf2a1",
-      },
-    },
+      }]
   },
+
 
   bf1a1: {
     text: "This guy, I swear. I haven’t even really spoken to him, and I’m already tired of our interactions. It’s best to speak quickly, so I can put him in his place! <br><br>I inhale the substance surrounding us, and store it deep inside my… lungs?",
@@ -791,18 +784,16 @@ var script = {
   },
 
   b1p19: {
-    text: "What should I focus on first?<br><br><span class='game-choice'>'Speak'<br>'Move'</span>",
+    text: "What should I focus on first?<br><br><span class:'game-choice'>'Speak'<br>'Move'</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "speak",
         next: "bf1a1",
-      },
-      o2: {
+      }, {
         text: "move",
         next: "bf1b1",
-      },
-    },
+      }]
   },
 
   b1p18: {
@@ -886,18 +877,16 @@ var script = {
   },
 
   b1p3: {
-    text: "Trying proves exceedingly difficult, and I'm starting not to care as much about the result.<br> What should I do?<br><br><span class='game-choice'>'Move'<br>'Give in'</span>",
+    text: "Trying proves exceedingly difficult, and I'm starting not to care as much about the result.<br> What should I do?<br><br><span class:'game-choice'>'Move'<br>'Give in'</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "move",
         next: "b1p4",
-      },
-      o2: {
+      }, {
         text: "give in",
         next: "b3p1",
-      },
-    },
+      }]
   },
 
   b1p2: {
@@ -918,18 +907,16 @@ var script = {
   },
 
   b1p1: {
-    text: "Focus… -I- urge to -myself-. Who am… Who are…?<br><br><span class='game-choice'>'I am'<br>'We are'</span>",
+    text: "Focus… -I- urge to -myself-. Who am… Who are…?<br><br><span class:'game-choice'>'I am'<br>'We are'</span>",
 
-    choice: {
-      o1: {
+    choice: [
+      {
         text: "i am",
         next: "b1p2",
-      },
-      o2: {
+      }, {
         text: "we are",
         next: "b2p1",
-      },
-    },
+      }]
   },
   b1p0: {
     text: "I… we… What…? <br>Our--my eyes are swimming. There is a deep, inky blackness surrounding me; us. Where does it end? Maybe 'it' doesn't: maybe this is who we are. And yet I feel a consciousness fighting for control, but the voices are many, their volumes unequal.",
@@ -937,3 +924,5 @@ var script = {
 
   }
 }
+
+export default script
